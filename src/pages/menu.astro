@@ -1,7 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
+import MenuCard from "../components/MenuCard.astro";
 
+const menus = [{date:"07/25", meals:[{name:"comida", description:"Noenqué1"}, {name:"cena", description:"Noencuántos1"}]}, {date:"07/26", meals:[{name:"comida", description:"Noenqué2"}, {name:"cena", description:"Noencuántos2"}]}, {date:"07/27", meals:[{name:"comida", description:"Noenqué3"}, {name:"cena", description:"Noencuántos3"}]}];
 ---
 
 <Layout title="Menupulate">
@@ -16,14 +18,8 @@ import Header from "../components/Header.astro";
         </a>
     </Header>
     <main>
-        <nav class="items-center flex flex-col">
-            <div class="w-96">
-                <h2 class="font-extrabold m-5">24/07</h2>
-                <h3 class="font-bold mt-3">Comida</h3>
-                <p>Noenqué</p>
-                <h3 class="font-bold mt-3">Cena</h3>
-                <p>Noencuántos</p>
-            </div>
-        </nav>
+        <div class="items-center flex flex-col ms-5 mr-5" id="menuAccordion">
+            {menus.map((menu)=> <MenuCard date={menu.date} meals={menu.meals}/>)}
+        </div>
     </main>
 </Layout>
